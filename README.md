@@ -24,7 +24,13 @@ Após o clone, é necessário instalar as gems. Façamos utilizando o bundle:
 $ bundle install
 ```
 
-Gems instaladas, inicie o servidor interno do Rails e acesse a url indicada no terminal:
+Gems instaladas, recrie o banco, rode as migrações e o seed usando:
+
+```
+$ rake db:drop db:create db:migrate db:seed
+```
+
+Inicie o servidor interno do Rails e acesse a url indicada no terminal:
 
 ```
 $ rails s
