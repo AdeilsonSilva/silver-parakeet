@@ -1,24 +1,31 @@
-# README
+# Sistema de Controle da Reserva
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Time de Desenvolvimento
 
-Things you may want to cover:
+* [Adeilson Silva](http://www.github.com/AdeilsonSilva)
 
-* Ruby version
+## Como fazer o famoso "Scadolf"
 
-* System dependencies
+```
+$ scaffold -c -m -p db/schema.rb
+```
 
-* Configuration
+Este comando copiará para o seu clipboard (caso esteja com o xclip instalado) o comando necessário para fazer o scaffold. Cole o comando no terminal e pronto! Exemplo:
 
-* Database creation
+```
+$ rails generate scaffold User email:string login:string name:string password:string
+```
 
-* Database initialization
+## Como rodar o projeto
 
-* How to run the test suite
+Após o clone, é necessário instalar as gems. Façamos utilizando o bundle:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ bundle install
+```
 
-* Deployment instructions
+Gems instaladas, inicie o servidor interno do Rails e acesse a url indicada no terminal:
 
-* ...
+```
+$ rails s
+```
