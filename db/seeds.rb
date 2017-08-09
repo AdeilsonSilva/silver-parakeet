@@ -12,3 +12,9 @@ User.create(
     login: 'adeilson',
     password: BCrypt::Password.create('teste')
 )
+
+Soldier.create(
+    graduation: 'Tenente',
+    war_name: 'Josias',
+    user_id: '1',
+)

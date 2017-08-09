@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Graduation:</strong>
+  <%= @soldier.graduation %>
+</p>
+
+<p>
+  <strong>War name:</strong>
+  <%= @soldier.war_name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @soldier.user %>
+</p>
+
+<%= link_to 'Edit', edit_soldier_path(@soldier) %> |
+<%= link_to 'Back', soldiers_path %>

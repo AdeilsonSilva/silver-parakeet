@@ -112,18 +112,18 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `silver-parakeet`.`soldier`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `silver-parakeet`.`soldier` ;
+DROP TABLE IF EXISTS `silver-parakeet`.`soldiers` ;
 
-CREATE TABLE IF NOT EXISTS `silver-parakeet`.`soldier` (
+CREATE TABLE IF NOT EXISTS `silver-parakeet`.`soldiers` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `graduation` VARCHAR(45) NOT NULL,
   `war_name` VARCHAR(45) NOT NULL,
-  `users_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  INDEX `fk_soldier_users_idx` (`users_id` ASC),
-  CONSTRAINT `fk_soldier_users`
-    FOREIGN KEY (`users_id`)
+  INDEX `fk_soldiers_user_idx` (`user_id` ASC),
+  CONSTRAINT `fk_soldiers_user`
+    FOREIGN KEY (`user_id`)
     REFERENCES `silver-parakeet`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -228,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`loans` (
   INDEX `fk_loans_material_reserve_has_accessories1_idx` (`accessories_id` ASC),
   CONSTRAINT `fk_loans_soldier1`
     FOREIGN KEY (`soldier_id`)
-    REFERENCES `silver-parakeet`.`soldier` (`id`)
+    REFERENCES `silver-parakeet`.`soldiers` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_loans_material_reserve_has_ammunition1`
@@ -258,42 +258,42 @@ USE `silver-parakeet`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `silver-parakeet`.`loans_AFTER_INSERT` AFTER INSERT ON `loans` FOR EACH ROW
 BEGIN
 
--- Updates amount of items available in relation table 
+-- Updates amount of items available in relation table
 
 IF NEW.armaments_id IS NOT NULL
 AND NEW.armaments_amount IS NOT NULL
 
 THEN
 
-UPDATE material_reserve_has_armaments 
+UPDATE material_reserve_has_armaments
 SET material_reserve_has_armaments.amount = material_reserve_has_armaments.amount - NEW.armaments_amount
 WHERE material_reserve_has_armaments.material_reserve_id = NEW.material_reserve_id
 AND  material_reserve_has_armaments.armament_id = NEW.armaments_id;
 
 END IF;
 
--- Updates amount of items available in relation table 
+-- Updates amount of items available in relation table
 
 IF NEW.accessories_id IS NOT NULL
 AND NEW.accessories_amount IS NOT NULL
 
 THEN
 
-UPDATE material_reserve_has_accessories 
+UPDATE material_reserve_has_accessories
 SET material_reserve_has_accessories.amount = material_reserve_has_accessories.amount - NEW.accessories_amount
 WHERE material_reserve_has_accessories.material_reserve_id = NEW.material_reserve_id
 AND  material_reserve_has_accessories.accessories_id = NEW.accessories_id;
 
 END IF;
 
--- Updates amount of items available in relation table 
+-- Updates amount of items available in relation table
 
 IF NEW.ammunition_id IS NOT NULL
 AND NEW.ammunition_amount IS NOT NULL
 
 THEN
 
-UPDATE material_reserve_has_ammunition 
+UPDATE material_reserve_has_ammunition
 SET material_reserve_has_ammunition.amount = material_reserve_has_ammunition.amount - NEW.ammunition_amount
 WHERE material_reserve_has_ammunition.material_reserve_id = NEW.material_reserve_id
 AND  material_reserve_has_ammunition.ammunition_id = NEW.ammunition_id;
