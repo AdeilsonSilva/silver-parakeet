@@ -7,7 +7,7 @@
 ## Como fazer o famoso "Scadolf"
 
 ```
-$ scaffold -c -m -p db/schema.rb
+$ scaffold -c -m -p db/schema_general.rb
 ```
 
 Este comando copiará para o seu clipboard (caso esteja com o xclip instalado) o comando necessário para fazer o scaffold. Cole o comando no terminal e pronto! Exemplo:
