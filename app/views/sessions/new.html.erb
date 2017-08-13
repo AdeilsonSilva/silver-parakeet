@@ -1,0 +1,21 @@
+<% content_for :title, "Fazer Login" %>
+
+<div class='singnin-form'>
+  <div class="signin-logo">
+    <%= image_tag("/images/logomin.png", :alt => "logo") %>
+    <h1>Sistema de Gerenciamento de Armamentos</h1>
+  </div>
+
+  <h1><%= yield :title %></h1>
+
+  <%= render 'form' %>
+
+  <p style="text-align: center;">Não tem uma conta? <%= link_to 'Cadastre-se', new_user_path %></p>
+
+</div>
+
+<footer class="signin-footer">
+
+   <%= image_tag("/images/footer.png", :alt => "footer") %>
+
+</footer>
