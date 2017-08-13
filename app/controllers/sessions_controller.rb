@@ -1,18 +1,18 @@
 class SessionsController < ApplicationController
+  before_action :require_logout, only: [:new, :create]
+
   def new
   end
 
   def create
-    user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:session][:email])
 
-    respond_to do |format|
-      if user&.authenticate(params[:password])
-        session[:user_id] = user.id
-        format.html { redirect_to @user, notice: 'Login com sucesso.' }
-        # format.js { render js: "window.location = '#{authenticated_root_path}'" }
-      else
-        format.json { render json: { success: false, error: 'E-mail ou senha incorretos' } }
-      end
+    if user&.authenticate(params[:session][:password])
+      session[:user_id] = user.id
+      redirect_to user
+    else
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
     end
   end
 

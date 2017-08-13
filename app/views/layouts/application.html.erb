@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SilverParakeet</title>
+    <title><%= yield :title %> | SGA</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,30 @@
   </head>
 
   <body>
+      <% if logged_in? %>
+        <header class="clearfix">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="header-logo">
+                        <%= image_tag("/images/logominblack.png", :class =>"menu-logo", :alt => "logo") %>
+                        <h4>SGA</h4>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <label for="open">
+                        <span class="hidden-desktop"><i class="fa fa-bars" aria-hidden="true"></i></span>
+                    </label>
+                    <input type="checkbox" name="" id="open">
+                    <nav>
+                        <%= link_to "Início",  root_path %>
+                        <%= link_to "Usuários", users_path %>
+                        <%= link_to "Sair", logout_path, method: :delete %>
+                    </nav>
+                </div>
+            </div>
+        </header>
+     <% end %>
     <%= yield %>
   </body>
 </html>
