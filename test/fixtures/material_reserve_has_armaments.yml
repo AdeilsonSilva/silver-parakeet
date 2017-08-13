@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  armaments: one
+  material_reserve: one
+  amount: 1
+
+two:
+  armaments: two
+  material_reserve: two
+  amount: 1

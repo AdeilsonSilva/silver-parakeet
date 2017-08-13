@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Caliber:</strong>
+  <%= @ammunition.caliber %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ammunition.description %>
+</p>
+
+<%= link_to 'Edit', edit_ammunition_path(@ammunition) %> |
+<%= link_to 'Back', ammunitions_path %>

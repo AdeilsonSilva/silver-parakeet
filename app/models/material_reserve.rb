@@ -1,0 +1,2 @@
+class MaterialReserve < ApplicationRecord
+end

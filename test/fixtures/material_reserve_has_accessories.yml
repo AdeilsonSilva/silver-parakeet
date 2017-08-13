@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  material_reserve: one
+  accessories: one
+  amount: 1
+
+two:
+  material_reserve: two
+  accessories: two
+  amount: 1

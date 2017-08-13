@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @armament.serial_number %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @armament.manufacturer %>
+</p>
+
+<%= link_to 'Edit', edit_armament_path(@armament) %> |
+<%= link_to 'Back', armaments_path %>

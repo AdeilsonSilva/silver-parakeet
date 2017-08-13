@@ -1,0 +1,2 @@
+module AmmunitionsHelper
+end

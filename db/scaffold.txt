@@ -1,0 +1,11 @@
+rails generate scaffold User email:string login:string name:string password:string
+rails generate scaffold Soldier graduation:string war_name:string user:references
+rails generate scaffold Accessory description:string
+rails generate scaffold Ammunition caliber:string description:string
+rails generate scaffold Armament serial_number:integer manufacturer:string
+rails generate scaffold MaterialReserve
+rails generate scaffold Reserf initials:string description:string material_reserve:references
+rails generate scaffold Loan soldier:references material_reserve:references ammunition:references armaments:references accessories:references ammunition_amount:integer armaments_amount:integer accessories_amount:integer date:datetime
+rails generate scaffold MaterialReserveHasAccessory material_reserve:references accessories:references amount:integer
+rails generate scaffold MaterialReserveHasAmmunition material_reserve:references ammunition:references amount:integer
+rails generate scaffold MaterialReserveHasArmament armaments:references material_reserve:references amount:integer

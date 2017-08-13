@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  soldier: one
+  material_reserve: one
+  ammunition: one
+  armaments: one
+  accessories: one
+  ammunition_amount: 1
+  armaments_amount: 1
+  accessories_amount: 1
+  date: 2017-08-13 12:29:23
+
+two:
+  soldier: two
+  material_reserve: two
+  ammunition: two
+  armaments: two
+  accessories: two
+  ammunition_amount: 1
+  armaments_amount: 1
+  accessories_amount: 1
+  date: 2017-08-13 12:29:23

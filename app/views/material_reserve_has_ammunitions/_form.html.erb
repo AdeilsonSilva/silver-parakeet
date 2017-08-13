@@ -1,0 +1,32 @@
+<%= form_with(model: material_reserve_has_ammunition, local: true) do |form| %>
+  <% if material_reserve_has_ammunition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(material_reserve_has_ammunition.errors.count, "error") %> prohibited this material_reserve_has_ammunition from being saved:</h2>
+
+      <ul>
+      <% material_reserve_has_ammunition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :material_reserve_id %>
+    <%= form.text_field :material_reserve_id, id: :material_reserve_has_ammunition_material_reserve_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ammunition_id %>
+    <%= form.text_field :ammunition_id, id: :material_reserve_has_ammunition_ammunition_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, id: :material_reserve_has_ammunition_amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

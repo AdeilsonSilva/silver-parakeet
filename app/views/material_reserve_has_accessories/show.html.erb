@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Material reserve:</strong>
+  <%= @material_reserve_has_accessory.material_reserve %>
+</p>
+
+<p>
+  <strong>Accessories:</strong>
+  <%= @material_reserve_has_accessory.accessories %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @material_reserve_has_accessory.amount %>
+</p>
+
+<%= link_to 'Edit', edit_material_reserve_has_accessory_path(@material_reserve_has_accessory) %> |
+<%= link_to 'Back', material_reserve_has_accessories_path %>

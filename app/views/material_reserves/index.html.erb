@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Material Reserves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @material_reserves.each do |material_reserf| %>
+      <tr>
+        <td><%= link_to 'Show', material_reserf %></td>
+        <td><%= link_to 'Edit', edit_material_reserf_path(material_reserf) %></td>
+        <td><%= link_to 'Destroy', material_reserf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Material Reserf', new_material_reserf_path %>

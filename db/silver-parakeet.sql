@@ -50,11 +50,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `silver-parakeet`.`material_reserve`
+-- Table `silver-parakeet`.`material_reserves`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `silver-parakeet`.`material_reserve` ;
+DROP TABLE IF EXISTS `silver-parakeet`.`material_reserves` ;
 
-CREATE TABLE IF NOT EXISTS `silver-parakeet`.`material_reserve` (
+CREATE TABLE IF NOT EXISTS `silver-parakeet`.`material_reserves` (
   `id` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`reserves` (
   INDEX `fk_reserves_material_reserve1_idx` (`material_reserve_id` ASC),
   CONSTRAINT `fk_reserves_material_reserve1`
     FOREIGN KEY (`material_reserve_id`)
-    REFERENCES `silver-parakeet`.`material_reserve` (`id`)
+    REFERENCES `silver-parakeet`.`material_reserves` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`material_reserve_has_ammunition` (
   INDEX `fk_material_reserve_has_ammunition_material_reserve1_idx` (`material_reserve_id` ASC),
   CONSTRAINT `fk_material_reserve_has_ammunition_material_reserve1`
     FOREIGN KEY (`material_reserve_id`)
-    REFERENCES `silver-parakeet`.`material_reserve` (`id`)
+    REFERENCES `silver-parakeet`.`material_reserves` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_material_reserve_has_ammunition_ammunition1`
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`material_reserve_has_accessories` 
   INDEX `fk_material_reserve_has_accessories_material_reserve1_idx` (`material_reserve_id` ASC),
   CONSTRAINT `fk_material_reserve_has_accessories_material_reserve1`
     FOREIGN KEY (`material_reserve_id`)
-    REFERENCES `silver-parakeet`.`material_reserve` (`id`)
+    REFERENCES `silver-parakeet`.`material_reserves` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_material_reserve_has_accessories_accessories1`
@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`material_reserve_has_armaments` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_armaments_has_material_reserve_material_reserve1`
     FOREIGN KEY (`material_reserve_id`)
-    REFERENCES `silver-parakeet`.`material_reserve` (`id`)
+    REFERENCES `silver-parakeet`.`material_reserves` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

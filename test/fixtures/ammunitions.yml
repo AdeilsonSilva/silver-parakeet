@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caliber: MyString
+  description: MyString
+
+two:
+  caliber: MyString
+  description: MyString

@@ -1,0 +1,1 @@
+json.partial! "material_reserve_has_ammunitions/material_reserve_has_ammunition", material_reserve_has_ammunition: @material_reserve_has_ammunition

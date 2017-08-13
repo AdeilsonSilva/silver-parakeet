@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Material Reserve Has Ammunitions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Material reserve</th>
+      <th>Ammunition</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @material_reserve_has_ammunitions.each do |material_reserve_has_ammunition| %>
+      <tr>
+        <td><%= material_reserve_has_ammunition.material_reserve %></td>
+        <td><%= material_reserve_has_ammunition.ammunition %></td>
+        <td><%= material_reserve_has_ammunition.amount %></td>
+        <td><%= link_to 'Show', material_reserve_has_ammunition %></td>
+        <td><%= link_to 'Edit', edit_material_reserve_has_ammunition_path(material_reserve_has_ammunition) %></td>
+        <td><%= link_to 'Destroy', material_reserve_has_ammunition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Material Reserve Has Ammunition', new_material_reserve_has_ammunition_path %>

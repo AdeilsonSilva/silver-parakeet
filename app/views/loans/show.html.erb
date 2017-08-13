@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Soldier:</strong>
+  <%= @loan.soldier %>
+</p>
+
+<p>
+  <strong>Material reserve:</strong>
+  <%= @loan.material_reserve %>
+</p>
+
+<p>
+  <strong>Ammunition:</strong>
+  <%= @loan.ammunition %>
+</p>
+
+<p>
+  <strong>Armaments:</strong>
+  <%= @loan.armaments %>
+</p>
+
+<p>
+  <strong>Accessories:</strong>
+  <%= @loan.accessories %>
+</p>
+
+<p>
+  <strong>Ammunition amount:</strong>
+  <%= @loan.ammunition_amount %>
+</p>
+
+<p>
+  <strong>Armaments amount:</strong>
+  <%= @loan.armaments_amount %>
+</p>
+
+<p>
+  <strong>Accessories amount:</strong>
+  <%= @loan.accessories_amount %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @loan.date %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>
