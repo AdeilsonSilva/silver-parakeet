@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "Armamentos" %>
 
-<h1>Armaments</h1>
+<% unless notice.blank? %>
+    <div class="info padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
 
-<table>
+<h1>Armamentos</h1>
+
+<table class="gt-table striped hovered">
   <thead>
     <tr>
       <th>Serial number</th>
@@ -11,14 +17,16 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @armaments.each do |armament| %>
       <tr>
         <td><%= armament.serial_number %></td>
         <td><%= armament.manufacturer %></td>
-        <td><%= link_to 'Show', armament %></td>
-        <td><%= link_to 'Edit', edit_armament_path(armament) %></td>
-        <td><%= link_to 'Destroy', armament, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <%= link_to 'Show', armament, :class => "action info" %>
+            <%= link_to 'Edit', edit_armament_path(armament), :class => "action success" %>
+            <%= link_to 'Destroy', armament, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Armament', new_armament_path %>
+<%= link_to 'New Armament', new_armament_path, :class => "action info" %>

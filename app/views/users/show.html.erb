@@ -1,5 +1,11 @@
 <% content_for :title, "Usuários" %>
 
+<% unless notice.blank? %>
+    <div class="success padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
+
 <div class="off-xs-3 xs-6 text-center">
     <div class="padding">
         <p>
@@ -18,6 +24,6 @@
         </p>
 
         <%= link_to 'Voltar', users_path, :class => "btn" %>
-        <%= link_to 'Edit', edit_user_path(@user), :class => "btn success" %>
+        <%= link_to 'Editar', edit_user_path(@user), :class => "btn success" %>
     </div>
 </div>

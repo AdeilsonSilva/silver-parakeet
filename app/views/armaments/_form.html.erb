@@ -1,27 +1,14 @@
-<%= form_with(model: armament, local: true) do |form| %>
-  <% if armament.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(armament.errors.count, "error") %> prohibited this armament from being saved:</h2>
+<%= form_with(model: armament, :html => {:class => "gt-form off-xs-3 xs-6"},local: true) do |form| %>
+  <%= form_errors_for form.object  %>
 
-      <ul>
-      <% armament.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form.label :serial_number %>
+  <%= form.number_field :serial_number, id: :armament_serial_number %>
 
-  <div class="field">
-    <%= form.label :serial_number %>
-    <%= form.number_field :serial_number, id: :armament_serial_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :manufacturer %>
-    <%= form.text_field :manufacturer, id: :armament_manufacturer %>
-  </div>
+  <%= form.label :manufacturer %>
+  <%= form.text_field :manufacturer, id: :armament_manufacturer %>
 
   <div class="actions">
-    <%= form.submit %>
+      <%= link_to 'Voltar', armaments_path, :class => "btn" %>
+      <%= form.submit 'Enviar', :class => "btn success" %>
   </div>
 <% end %>
