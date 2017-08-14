@@ -1,6 +1,9 @@
-<h1>Editing User</h1>
+<% content_for :title, "Usuários" %>
 
-<%= render 'form', user: @user %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Edição de Usuário</h1>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+        <%= render 'form', user: @user %>
+    </div>
+</div>

@@ -1,37 +1,20 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_with(model: user, :html => {:class => "gt-form off-xs-3 xs-6"}, local: true) do |form| %>
+    <%= form_errors_for form.object  %>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email, id: :user_email %>
-  </div>
 
-  <div class="field">
     <%= form.label :login %>
     <%= form.text_field :login, id: :user_login %>
-  </div>
 
-  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :user_name %>
-  </div>
 
-  <div class="field">
     <%= form.label :password %>
     <%= form.text_field :password, id: :user_password %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+      <%= link_to 'Voltar', users_path, :class => "btn" %>
+      <%= form.submit 'Enviar', :class => "btn success" %>
   </div>
 <% end %>

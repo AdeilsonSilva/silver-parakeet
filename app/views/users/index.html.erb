@@ -1,28 +1,30 @@
+<% content_for :title, "Usuários" %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1>Usuários</h1>
 
-<table>
+<table class="gt-table striped hovered">
   <thead>
     <tr>
       <th>Email</th>
       <th>Login</th>
       <th>Name</th>
-      <th>Password</th>
-      <th colspan="3"></th>
+      <th>Ações</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
         <td><%= user.login %></td>
         <td><%= user.name %></td>
-        <td><%= user.password %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <%= link_to 'Show', user, :class => "action info" %>
+            <%= link_to 'Edit', edit_user_path(user), :class => "action success" %>
+            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'Novo usuário', new_user_path, :class => "action info" %>
