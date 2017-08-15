@@ -1,8 +1,12 @@
-<%= form_with(model: loan, :html => {:class => "gt-form off-xs-3 xs-6"}, local: true) do |form| %>
-  <%= form_errors_for form.object %>
+<%= form_for [@reserve, @loan], :html => {:class => "gt-form off-xs-3 xs-6"} do |form| %>
+  <%= form_errors_for form.object  %>
 
-  <%= form.label :soldier_id %>
-  <%= form.text_field :soldier_id, id: :loan_soldier_id %>
+  <div class="field">
+    <%= form.label :material_reserve_id %>
+    <select id = "car_type", name="car_type">
+      <%= options_from_collection_for_select @materials_reserve, 'id', 'id' %>
+    <select>
+  </div>
 
   <%= form.label :material_reserve_id %>
   <%= form.text_field :material_reserve_id, id: :loan_material_reserve_id %>

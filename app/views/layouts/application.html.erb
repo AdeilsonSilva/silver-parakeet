@@ -10,7 +10,7 @@
     <%= javascript_include_tag "gaintime.min" %>
   </head>
 
-  <body>
+  <body class="panel">
       <!-- Logged in header -->
         <% if logged_in? %>
             <header class="gt-top-menu xs-left">
@@ -29,6 +29,9 @@
                         <%= link_to users_path do %>
                             <li>Usuários</li>
                         <% end %>
+                        <%= link_to soldiers_path do %>
+                            <li>Soldados</li>
+                        <% end %>
                         <%= link_to armaments_path do %>
                             <li>Armamentos</li>
                         <% end %>
@@ -38,6 +41,10 @@
                         <%= link_to accessories_path do %>
                             <li>Acessórios</li>
                         <% end %>
+                        <%= link_to reserves_path do %>
+                            <li>Reservas</li>
+                        <% end %>
+
                         <a rel="nofollow" data-method="delete" href="/logout"><li>Sair</li></a>
                     </ul>
                 </nav>

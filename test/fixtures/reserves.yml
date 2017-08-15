@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   initials: MyString
   description: MyString
-  material_reserve: one
 
 two:
+  id: 1
   initials: MyString
   description: MyString
-  material_reserve: two

@@ -1,2 +1,2 @@
-json.extract! material_reserf, :id, :created_at, :updated_at
-json.url material_reserf_url(material_reserf, format: :json)
+json.extract! material_reserve, :id, :reserve_id, :created_at, :updated_at
+json.url material_reserve_url(material_reserve, format: :json)

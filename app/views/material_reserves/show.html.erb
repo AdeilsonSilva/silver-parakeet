@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_material_reserf_path(@material_reserf) %> |
-<%= link_to 'Back', material_reserves_path %>
+<p>
+  <strong>Reserve:</strong>
+  <%= @material_reserve.reserve %>
+</p>
+
+<%= link_to "Armamentos da Reserva", reserf_material_reserf_material_reserve_has_armaments_url(@reserve, @material_reserve) %>

@@ -1,8 +1,5 @@
-<%= form_with(model: material_reserve_has_armament, :html => {:class => "gt-form off-xs-3 xs-6"}, local: true) do |form| %>
-  <%= form_errors_for form.object %>
-
-  <%= form.label :armaments_id %>
-  <%= form.text_field :armaments_id, id: :material_reserve_has_armament_armaments_id %>
+<%= form_for [:reserf, @material_reserve, @material_reserve_has_armament], :html => {:class => "gt-form off-xs-3 xs-6"} do |form| %>
+  <%= form_errors_for form.object  %>
 
   <%= form.label :material_reserve_id %>
   <%= form.text_field :material_reserve_id, id: :material_reserve_has_armament_material_reserve_id %>

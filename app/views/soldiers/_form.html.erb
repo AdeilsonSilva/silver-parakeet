@@ -1,5 +1,5 @@
 <%= form_with(model: soldier, :html => {:class => "gt-form off-xs-3 xs-6"}, local: true) do |form| %>
-  <%= form_errors_for form.object %>
+  <%= form_errors_for form.object  %>
 
   <%= form.label :graduation %>
   <%= form.text_field :graduation, id: :soldier_graduation %>
@@ -8,10 +8,13 @@
   <%= form.text_field :war_name, id: :soldier_war_name %>
 
   <%= form.label :user_id %>
-  <%= form.text_field :user_id, id: :soldier_user_id %>
+  <%= form.collection_select :user_id, @users, :id, :name, {include_blank: 'Please Select'} %>
+
+  <%= form.label :reserve_id %>
+  <%= form.collection_select :reserve_id, @reserves, :id, :initials, {include_blank: 'Please Select'} %>
 
   <div class="actions">
-    <%= link_to 'Voltar', soldiers_path, :class => "btn" %>
-    <%= form.submit 'Enviar', :class => "btn success" %>
+      <%= link_to 'Voltar', soldiers_path, :class => "btn" %>
+      <%= form.submit 'Enviar', :class => "btn success" %>
   </div>
 <% end %>

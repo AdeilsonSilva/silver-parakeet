@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MaterialReservesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @material_reserf = material_reserves(:one)
+    @material_reserve = material_reserves(:one)
   end
 
   test "should get index" do
@@ -11,36 +11,36 @@ class MaterialReservesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_material_reserf_url
+    get new_material_reserve_url
     assert_response :success
   end
 
-  test "should create material_reserf" do
+  test "should create material_reserve" do
     assert_difference('MaterialReserve.count') do
-      post material_reserves_url, params: { material_reserf: {  } }
+      post material_reserves_url, params: { material_reserve: { reserve_id: @material_reserve.reserve_id } }
     end
 
-    assert_redirected_to material_reserf_url(MaterialReserve.last)
+    assert_redirected_to material_reserve_url(MaterialReserve.last)
   end
 
-  test "should show material_reserf" do
-    get material_reserf_url(@material_reserf)
+  test "should show material_reserve" do
+    get material_reserve_url(@material_reserve)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_material_reserf_url(@material_reserf)
+    get edit_material_reserve_url(@material_reserve)
     assert_response :success
   end
 
-  test "should update material_reserf" do
-    patch material_reserf_url(@material_reserf), params: { material_reserf: {  } }
-    assert_redirected_to material_reserf_url(@material_reserf)
+  test "should update material_reserve" do
+    patch material_reserve_url(@material_reserve), params: { material_reserve: { reserve_id: @material_reserve.reserve_id } }
+    assert_redirected_to material_reserve_url(@material_reserve)
   end
 
-  test "should destroy material_reserf" do
+  test "should destroy material_reserve" do
     assert_difference('MaterialReserve.count', -1) do
-      delete material_reserf_url(@material_reserf)
+      delete material_reserve_url(@material_reserve)
     end
 
     assert_redirected_to material_reserves_url

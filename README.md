@@ -3,6 +3,9 @@
 ## Time de Desenvolvimento
 
 * [Adeilson Silva](http://www.github.com/AdeilsonSilva)
+* [Alana Souza](http://www.github.com/AdeilsonSilva)
+* [João Pedro](http://www.github.com/AdeilsonSilva)
+* [Juliana](http://www.github.com/AdeilsonSilva)
 
 ## Como fazer o famoso "Scadolf"
 

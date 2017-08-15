@@ -1,10 +1,12 @@
 class LoansController < ApplicationController
+  before_action :require_login
+  before_action :load_reserf
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
 
   # GET /loans
   # GET /loans.json
   def index
-    @loans = Loan.all
+    @loans = @reserve.loan.all
   end
 
   # GET /loans/1
@@ -14,7 +16,9 @@ class LoansController < ApplicationController
 
   # GET /loans/new
   def new
-    @loan = Loan.new
+    @loan = @reserve.loan.new
+    @materials_reserve = @reserve.material_reserve.all
+    @armaments = @material_reserve.material_reserve_has_armaments.all
   end
 
   # GET /loans/1/edit
@@ -24,7 +28,8 @@ class LoansController < ApplicationController
   # POST /loans
   # POST /loans.json
   def create
-    @loan = Loan.new(loan_params)
+    @loan = @reserve.loan.new(loan_params)
+    @loan.soldier_id = Soldier.find_by(user_id: current_user.id)
 
     respond_to do |format|
       if @loan.save
@@ -67,8 +72,13 @@ class LoansController < ApplicationController
       @loan = Loan.find(params[:id])
     end
 
+    # Use callbacks to share common setup or constraints between actions.
+    def load_reserf
+      @reserve = Reserve.find(params[:reserf_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_params
-      params.require(:loan).permit(:soldier_id, :material_reserve_id, :ammunition_id, :armaments_id, :accessories_id, :ammunition_amount, :armaments_amount, :accessories_amount, :date)
+      params.require(:loan).permit(:material_reserve_id, :ammunition_id, :armaments_id, :accessories_id, :ammunition_amount, :armaments_amount, :accessories_amount, :date)
     end
 end

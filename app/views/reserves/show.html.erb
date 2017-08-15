@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Id:</strong>
+  <%= @reserve.id %>
+</p>
+
+<p>
   <strong>Initials:</strong>
-  <%= @reserf.initials %>
+  <%= @reserve.initials %>
 </p>
 
 <p>
   <strong>Description:</strong>
-  <%= @reserf.description %>
+  <%= @reserve.description %>
 </p>
 
-<p>
-  <strong>Material reserve:</strong>
-  <%= @reserf.material_reserve %>
-</p>
+<%= link_to "Empréstimos", reserf_loans_path(@reserve) %>
+<%= link_to "Reservas de Material", reserf_material_reserves_path(@reserve) %>
 
-<%= link_to 'Edit', edit_reserf_path(@reserf) %> |
+<%= link_to 'Edit', edit_reserf_path(@reserve) %> |
 <%= link_to 'Back', reserves_path %>
