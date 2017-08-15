@@ -1,5 +1,9 @@
-<h1>New Accessory</h1>
+<% content_for :title, "Acessórios" %>
 
-<%= render 'form', accessory: @accessory %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Adicionar Acessório</h1>
 
-<%= link_to 'Back', accessories_path %>
+        <%= render 'form', accessory: @accessory %>
+    </div>
+</div>

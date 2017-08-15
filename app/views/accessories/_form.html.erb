@@ -1,22 +1,11 @@
-<%= form_with(model: accessory, local: true) do |form| %>
-  <% if accessory.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(accessory.errors.count, "error") %> prohibited this accessory from being saved:</h2>
+<%= form_with(model: accessory, :html => {:class => "gt-form off-xs-3 xs-6"},  local: true) do |form| %>
+  <%= form_errors_for form.object %>
 
-      <ul>
-      <% accessory.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :accessory_description %>
-  </div>
+  <%= form.label :description %>
+  <%= form.text_field :description, id: :accessory_description %>
 
   <div class="actions">
-    <%= form.submit %>
+      <%= link_to 'Voltar', accessories_path, :class => "btn" %>
+      <%= form.submit 'Enviar', :class => "btn success" %>
   </div>
 <% end %>

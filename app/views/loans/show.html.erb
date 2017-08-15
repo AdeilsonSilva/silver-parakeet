@@ -1,49 +1,57 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "Empréstimos" %>
+<% unless notice.blank? %>
+    <div class="info padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
 
-<p>
-  <strong>Soldier:</strong>
-  <%= @loan.soldier %>
-</p>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <p>
+          <strong>Soldier:</strong>
+          <%= @loan.soldier %>
+        </p>
 
-<p>
-  <strong>Material reserve:</strong>
-  <%= @loan.material_reserve %>
-</p>
+        <p>
+          <strong>Material reserve:</strong>
+          <%= @loan.material_reserve %>
+        </p>
 
-<p>
-  <strong>Ammunition:</strong>
-  <%= @loan.ammunition %>
-</p>
+        <p>
+          <strong>Ammunition:</strong>
+          <%= @loan.ammunition %>
+        </p>
 
-<p>
-  <strong>Armaments:</strong>
-  <%= @loan.armaments %>
-</p>
+        <p>
+          <strong>Armaments:</strong>
+          <%= @loan.armaments %>
+        </p>
 
-<p>
-  <strong>Accessories:</strong>
-  <%= @loan.accessories %>
-</p>
+        <p>
+          <strong>Accessories:</strong>
+          <%= @loan.accessories %>
+        </p>
 
-<p>
-  <strong>Ammunition amount:</strong>
-  <%= @loan.ammunition_amount %>
-</p>
+        <p>
+          <strong>Ammunition amount:</strong>
+          <%= @loan.ammunition_amount %>
+        </p>
 
-<p>
-  <strong>Armaments amount:</strong>
-  <%= @loan.armaments_amount %>
-</p>
+        <p>
+          <strong>Armaments amount:</strong>
+          <%= @loan.armaments_amount %>
+        </p>
 
-<p>
-  <strong>Accessories amount:</strong>
-  <%= @loan.accessories_amount %>
-</p>
+        <p>
+          <strong>Accessories amount:</strong>
+          <%= @loan.accessories_amount %>
+        </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @loan.date %>
-</p>
-
-<%= link_to 'Edit', edit_loan_path(@loan) %> |
-<%= link_to 'Back', loans_path %>
+        <p>
+          <strong>Date:</strong>
+          <%= @loan.date %>
+        </p>
+    </div>
+</div>
+<%= link_to 'Voltar', loans_path, :class => "btn" %>
+<%= link_to 'Editar', edit_loan_path(@loan), :class => "btn success" %>

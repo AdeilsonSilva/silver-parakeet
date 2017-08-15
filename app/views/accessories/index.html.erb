@@ -1,22 +1,30 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "Acessórios" %>
+
+<% unless notice.blank? %>
+    <div class="info padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
 
 <h1>Accessories</h1>
 
-<table>
+<table class="gt-table striped hovered">
   <thead>
     <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Descrição</th>
+      <th colspan="3">Ações</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @accessories.each do |accessory| %>
       <tr>
         <td><%= accessory.description %></td>
-        <td><%= link_to 'Show', accessory %></td>
-        <td><%= link_to 'Edit', edit_accessory_path(accessory) %></td>
-        <td><%= link_to 'Destroy', accessory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <%= link_to 'Show', accessory, :class => "action info" %>
+            <%= link_to 'Edit', edit_accessory_path(accessory), :class => "action success" %>
+            <%= link_to 'Destroy', accessory, method: :delete, data: { confirm: 'Are you sure?' }, :class => "action danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Accessory', new_accessory_path %>
+<%= link_to 'Novo Acessório', new_accessory_path, :class => "action info" %>

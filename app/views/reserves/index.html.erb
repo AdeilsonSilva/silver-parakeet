@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.blank? %>
+    <div class="info padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
 
 <h1>Reserves</h1>
 
-<table>
+<table class="gt-table striped hovered">
   <thead>
     <tr>
       <th>Initials</th>
@@ -12,7 +16,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @reserves.each do |reserf| %>
       <tr>
         <td><%= reserf.initials %></td>

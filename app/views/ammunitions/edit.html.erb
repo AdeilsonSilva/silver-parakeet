@@ -1,6 +1,8 @@
-<h1>Editing Ammunition</h1>
+<% content_for :title, "Munições" %>
 
-<%= render 'form', ammunition: @ammunition %>
-
-<%= link_to 'Show', @ammunition %> |
-<%= link_to 'Back', ammunitions_path %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Edição de munições</h1>
+        <%= render 'form', ammunition: @ammunition %>
+    </div>
+</div>

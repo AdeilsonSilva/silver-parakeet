@@ -1,6 +1,9 @@
-<h1>Editing Material Reserf</h1>
+<% content_for :title, "Edição de Material Reservado" %>
 
-<%= render 'form', material_reserf: @material_reserf %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Edição de Material Reservado</h1>
 
-<%= link_to 'Show', @material_reserf %> |
-<%= link_to 'Back', material_reserves_path %>
+        <%= render 'form', material_reserf: @material_reserf %>
+    </div>
+</div>

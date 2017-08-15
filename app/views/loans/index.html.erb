@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.blank? %>
+    <div class="info padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
 
 <h1>Loans</h1>
 
-<table>
+<table class="gt-table striped hovered">
   <thead>
     <tr>
       <th>Soldier</th>
@@ -18,7 +22,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-center">
     <% @loans.each do |loan| %>
       <tr>
         <td><%= loan.soldier %></td>

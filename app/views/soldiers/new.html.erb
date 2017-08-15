@@ -1,5 +1,8 @@
-<h1>New Soldier</h1>
+<% content_for :title, "Soldados" %>
 
-<%= render 'form', soldier: @soldier %>
-
-<%= link_to 'Back', soldiers_path %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Adicionar Soldados</h1>
+        <%= render 'form', soldier: @soldier %>
+    </div>
+</div>
