@@ -1,10 +1,12 @@
 class MaterialReserveHasArmamentsController < ApplicationController
+  before_action :require_login
+  before_action :load_material_reserf
   before_action :set_material_reserve_has_armament, only: [:show, :edit, :update, :destroy]
 
   # GET /material_reserve_has_armaments
   # GET /material_reserve_has_armaments.json
   def index
-    @material_reserve_has_armaments = MaterialReserveHasArmament.all
+    @material_reserve_has_armaments = @material_reserve.material_reserve_has_armaments.all
   end
 
   # GET /material_reserve_has_armaments/1
@@ -14,7 +16,7 @@ class MaterialReserveHasArmamentsController < ApplicationController
 
   # GET /material_reserve_has_armaments/new
   def new
-    @material_reserve_has_armament = MaterialReserveHasArmament.new
+    @material_reserve_has_armament = @material_reserve.material_reserve_has_armaments.new
   end
 
   # GET /material_reserve_has_armaments/1/edit
@@ -24,7 +26,7 @@ class MaterialReserveHasArmamentsController < ApplicationController
   # POST /material_reserve_has_armaments
   # POST /material_reserve_has_armaments.json
   def create
-    @material_reserve_has_armament = MaterialReserveHasArmament.new(material_reserve_has_armament_params)
+    @material_reserve_has_armament = @material_reserve.material_reserve_has_armament.new(material_reserve_has_armament_params)
 
     respond_to do |format|
       if @material_reserve_has_armament.save
@@ -64,7 +66,12 @@ class MaterialReserveHasArmamentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_material_reserve_has_armament
-      @material_reserve_has_armament = MaterialReserveHasArmament.find(params[:id])
+      @material_reserve_has_armament = @material_reserve.material_reserve_has_armament.find(params[:id])
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def load_material_reserf
+      @material_reserve = MaterialReserve.find(params[:material_reserf_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,5 +1,6 @@
 class SoldiersController < ApplicationController
   before_action :set_soldier, only: [:show, :edit, :update, :destroy]
+  before_action :set_references, except: [:show, :destroy]
 
   # GET /soldiers
   # GET /soldiers.json
@@ -25,7 +26,8 @@ class SoldiersController < ApplicationController
   # POST /soldiers.json
   def create
     @soldier = Soldier.new(soldier_params)
-
+    @soldier.reserve_id = Reserve.find_by(id: params[:reserve_id])
+    # abort @soldier.inspect
     respond_to do |format|
       if @soldier.save
         format.html { redirect_to @soldier, notice: 'Soldier was successfully created.' }
@@ -67,8 +69,14 @@ class SoldiersController < ApplicationController
       @soldier = Soldier.find(params[:id])
     end
 
+    # Use callbacks to share common setup or constraints between actions.
+    def set_references
+      @users = User.all
+      @reserves = Reserve.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def soldier_params
-      params.require(:soldier).permit(:graduation, :war_name, :user_id)
+      params.require(:soldier).permit(:graduation, :war_name, :user_id, :reserve_id)
     end
 end

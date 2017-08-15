@@ -1,17 +1,6 @@
-<%= form_with(model: material_reserf, local: true) do |form| %>
-  <% if material_reserf.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(material_reserf.errors.count, "error") %> prohibited this material_reserf from being saved:</h2>
+<%= form_tag reserf_material_reserves_path, :method => :post do %>
 
-      <ul>
-      <% material_reserf.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= hidden_field_tag 'material_reserve[reserve_id]', @reserve.id %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= submit_tag "Criar reserva de material" %>
 <% end %>

@@ -5,22 +5,22 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Initials</th>
       <th>Description</th>
-      <th>Material reserve</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @reserves.each do |reserf| %>
+    <% @reserves.each do |reserve| %>
       <tr>
-        <td><%= reserf.initials %></td>
-        <td><%= reserf.description %></td>
-        <td><%= reserf.material_reserve %></td>
-        <td><%= link_to 'Show', reserf %></td>
-        <td><%= link_to 'Edit', edit_reserf_path(reserf) %></td>
-        <td><%= link_to 'Destroy', reserf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= reserve.id %></td>
+        <td><%= reserve.initials %></td>
+        <td><%= reserve.description %></td>
+        <td><%= link_to 'Show', reserve %></td>
+        <td><%= link_to 'Edit', edit_reserf_path(reserve) %></td>
+        <td><%= link_to 'Destroy', reserve, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Reserf', new_reserf_path %>
+<%= link_to 'New Reserve', new_reserf_path %>

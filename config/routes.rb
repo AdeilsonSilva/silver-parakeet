@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
 # Resources
-  resources :reserves
-  resources :material_reserve_has_armaments
-  resources :material_reserve_has_ammunitions
-  resources :material_reserve_has_accessories
-  resources :material_reserves
-  resources :loans
+  resources :reserves do
+    resources :loans
+    resources :material_reserves do
+        resources :material_reserve_has_armaments
+        resources :material_reserve_has_ammunitions
+        resources :material_reserve_has_accessories
+    end
+  end
   resources :armaments
   resources :ammunitions
   resources :accessories

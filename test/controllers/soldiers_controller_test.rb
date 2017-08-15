@@ -17,7 +17,7 @@ class SoldiersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create soldier" do
     assert_difference('Soldier.count') do
-      post soldiers_url, params: { soldier: { graduation: @soldier.graduation, user_id: @soldier.user_id, war_name: @soldier.war_name } }
+      post soldiers_url, params: { soldier: { graduation: @soldier.graduation, reserve_id: @soldier.reserve_id, user_id: @soldier.user_id, war_name: @soldier.war_name } }
     end
 
     assert_redirected_to soldier_url(Soldier.last)
@@ -34,7 +34,7 @@ class SoldiersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update soldier" do
-    patch soldier_url(@soldier), params: { soldier: { graduation: @soldier.graduation, user_id: @soldier.user_id, war_name: @soldier.war_name } }
+    patch soldier_url(@soldier), params: { soldier: { graduation: @soldier.graduation, reserve_id: @soldier.reserve_id, user_id: @soldier.user_id, war_name: @soldier.war_name } }
     assert_redirected_to soldier_url(@soldier)
   end
 

@@ -1,15 +1,5 @@
-<%= form_with(model: material_reserve_has_armament, local: true) do |form| %>
-  <% if material_reserve_has_armament.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(material_reserve_has_armament.errors.count, "error") %> prohibited this material_reserve_has_armament from being saved:</h2>
-
-      <ul>
-      <% material_reserve_has_armament.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for [:reserf, @material_reserve, @material_reserve_has_armament] do |form| %>
+  <%= form_errors_for form.object  %>
 
   <div class="field">
     <%= form.label :armaments_id %>

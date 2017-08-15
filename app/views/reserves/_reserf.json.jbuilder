@@ -1,2 +1,2 @@
-json.extract! reserf, :id, :initials, :description, :material_reserve_id, :created_at, :updated_at
-json.url reserf_url(reserf, format: :json)
+json.extract! reserve, :id, :id, :initials, :description, :created_at, :updated_at
+json.url reserve_url(reserve, format: :json)

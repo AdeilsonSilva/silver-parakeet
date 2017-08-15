@@ -1,5 +1,4 @@
 <%= form_for(:session, url: login_path, :html => {:class => "gt-form off-xs-3 xs-6"} ) do |f| %>
-    <%= form_errors_for f.object  %>
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control' %>
 
@@ -8,5 +7,5 @@
 
     <%= f.submit "Log in", class: "btn btn-primary" %>
     <p> Não tem uma conta? <%= link_to 'Cadastre-se', new_user_path %></p>
-    
+
 <% end %>

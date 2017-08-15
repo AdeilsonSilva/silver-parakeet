@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813152930) do
+ActiveRecord::Schema.define(version: 20170813152932) do
 
   create_table "accessories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "description"
@@ -82,25 +82,27 @@ ActiveRecord::Schema.define(version: 20170813152930) do
   end
 
   create_table "material_reserves", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "reserve_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reserve_id"], name: "index_material_reserves_on_reserve_id"
   end
 
   create_table "reserves", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "initials"
     t.string "description"
-    t.bigint "material_reserve_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["material_reserve_id"], name: "index_reserves_on_material_reserve_id"
   end
 
   create_table "soldiers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "graduation"
     t.string "war_name"
     t.bigint "user_id"
+    t.bigint "reserve_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reserve_id"], name: "index_soldiers_on_reserve_id"
     t.index ["user_id"], name: "index_soldiers_on_user_id"
   end
 
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 20170813152930) do
   add_foreign_key "material_reserve_has_ammunitions", "material_reserves", column: "material_reserve_id"
   add_foreign_key "material_reserve_has_armaments", "armaments", column: "armaments_id"
   add_foreign_key "material_reserve_has_armaments", "material_reserves", column: "material_reserve_id"
-  add_foreign_key "reserves", "material_reserves", column: "material_reserve_id"
+  add_foreign_key "material_reserves", "reserves", column: "reserve_id"
+  add_foreign_key "soldiers", "reserves", column: "reserve_id"
   add_foreign_key "soldiers", "users"
 end

@@ -48,19 +48,6 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`armaments` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `silver-parakeet`.`material_reserves`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `silver-parakeet`.`material_reserves` ;
-
-CREATE TABLE IF NOT EXISTS `silver-parakeet`.`material_reserves` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `silver-parakeet`.`reserves`
 -- -----------------------------------------------------
@@ -70,13 +57,25 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`reserves` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `initials` VARCHAR(15) NOT NULL,
   `description` VARCHAR(255) NOT NULL,
-  `material_reserve_id` INT NOT NULL,
   PRIMARY KEY (`id`, `material_reserve_id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `silver-parakeet`.`material_reserves`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `silver-parakeet`.`material_reserves` ;
+
+CREATE TABLE IF NOT EXISTS `silver-parakeet`.`material_reserves` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `reserve_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  INDEX `fk_reserves_material_reserve1_idx` (`material_reserve_id` ASC),
-  CONSTRAINT `fk_reserves_material_reserve1`
-    FOREIGN KEY (`material_reserve_id`)
-    REFERENCES `silver-parakeet`.`material_reserves` (`id`)
+  INDEX `fk_material_reserves_reserve1_idx` (`reserve_id` ASC),
+  CONSTRAINT `fk_reserves_reserve1`
+    FOREIGN KEY (`reserve_id`)
+    REFERENCES `silver-parakeet`.`reserves` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -119,12 +118,18 @@ CREATE TABLE IF NOT EXISTS `silver-parakeet`.`soldiers` (
   `graduation` VARCHAR(45) NOT NULL,
   `war_name` VARCHAR(45) NOT NULL,
   `user_id` INT NOT NULL,
+  `reserve_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_soldiers_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_soldiers_user`
     FOREIGN KEY (`user_id`)
     REFERENCES `silver-parakeet`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+  CONSTRAINT `fk_soldiers_reserve`
+    FOREIGN KEY (`reserve_id`)
+    REFERENCES `silver-parakeet`.`reserves` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ReservesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @reserf = reserves(:one)
+    @reserve = reserves(:one)
   end
 
   test "should get index" do
@@ -11,36 +11,36 @@ class ReservesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_reserf_url
+    get new_reserve_url
     assert_response :success
   end
 
-  test "should create reserf" do
-    assert_difference('Reserf.count') do
-      post reserves_url, params: { reserf: { description: @reserf.description, initials: @reserf.initials, material_reserve_id: @reserf.material_reserve_id } }
+  test "should create reserve" do
+    assert_difference('Reserve.count') do
+      post reserves_url, params: { reserve: { description: @reserve.description, id: @reserve.id, initials: @reserve.initials } }
     end
 
-    assert_redirected_to reserf_url(Reserf.last)
+    assert_redirected_to reserve_url(Reserve.last)
   end
 
-  test "should show reserf" do
-    get reserf_url(@reserf)
+  test "should show reserve" do
+    get reserve_url(@reserve)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_reserf_url(@reserf)
+    get edit_reserve_url(@reserve)
     assert_response :success
   end
 
-  test "should update reserf" do
-    patch reserf_url(@reserf), params: { reserf: { description: @reserf.description, initials: @reserf.initials, material_reserve_id: @reserf.material_reserve_id } }
-    assert_redirected_to reserf_url(@reserf)
+  test "should update reserve" do
+    patch reserve_url(@reserve), params: { reserve: { description: @reserve.description, id: @reserve.id, initials: @reserve.initials } }
+    assert_redirected_to reserve_url(@reserve)
   end
 
-  test "should destroy reserf" do
-    assert_difference('Reserf.count', -1) do
-      delete reserf_url(@reserf)
+  test "should destroy reserve" do
+    assert_difference('Reserve.count', -1) do
+      delete reserve_url(@reserve)
     end
 
     assert_redirected_to reserves_url

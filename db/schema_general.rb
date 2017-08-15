@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "material_reserve", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "reserve_id", null: false
     t.index ["id"], name: "id_UNIQUE", unique: true
+    t.index ["reserve_id"], name: "fk_reserves_reserve1_idx"
   end
 
   create_table "material_reserve_has_accessories", primary_key: ["material_reserve_id", "accessories_id"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -78,17 +80,17 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "id", null: false
     t.string "initials", limit: 15, null: false
     t.string "description", null: false
-    t.integer "material_reserve_id", null: false
     t.index ["id"], name: "id_UNIQUE", unique: true
-    t.index ["material_reserve_id"], name: "fk_reserves_material_reserve1_idx"
   end
 
   create_table "soldiers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "graduation", limit: 45, null: false
     t.string "war_name", limit: 45, null: false
     t.integer "user_id", null: false
+    t.integer "reserve_id", null: false
     t.index ["id"], name: "id_UNIQUE", unique: true
     t.index ["user_id"], name: "fk_soldiers_user_idx"
+    t.index ["reserve_id"], name: "fk_soldiers_reserve_idx"
   end
 
   create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

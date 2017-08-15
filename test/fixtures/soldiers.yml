@@ -4,8 +4,10 @@ one:
   graduation: MyString
   war_name: MyString
   user: one
+  reserve: one
 
 two:
   graduation: MyString
   war_name: MyString
   user: two
+  reserve: two

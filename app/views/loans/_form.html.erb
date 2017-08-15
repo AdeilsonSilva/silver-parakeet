@@ -1,24 +1,11 @@
-<%= form_with(model: loan, local: true) do |form| %>
-  <% if loan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
-
-      <ul>
-      <% loan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :soldier_id %>
-    <%= form.text_field :soldier_id, id: :loan_soldier_id %>
-  </div>
+<%= form_for [@reserve, @loan] do |form| %>
+  <%= form_errors_for form.object  %>
 
   <div class="field">
     <%= form.label :material_reserve_id %>
-    <%= form.text_field :material_reserve_id, id: :loan_material_reserve_id %>
+    <select id = "car_type", name="car_type">
+      <%= options_from_collection_for_select @materials_reserve, 'id', 'id' %>
+    <select>
   </div>
 
   <div class="field">
