@@ -1,6 +1,9 @@
-<h1>Editing Soldier</h1>
+<% content_for :title, "Edição de Soldados" %>
 
-<%= render 'form', soldier: @soldier %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Edição de Soldados</h1>
 
-<%= link_to 'Show', @soldier %> |
-<%= link_to 'Back', soldiers_path %>
+        <%= render 'form', soldier: @soldier %>
+    </div>
+</div>

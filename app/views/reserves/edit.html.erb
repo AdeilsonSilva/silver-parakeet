@@ -1,6 +1,9 @@
-<h1>Editing Reserf</h1>
+<% content_for :title, "Edição de Reserva" %>
 
-<%= render 'form', reserf: @reserf %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Edição de Reserva</h1>
 
-<%= link_to 'Show', @reserf %> |
-<%= link_to 'Back', reserves_path %>
+        <%= render 'form', reserf: @reserf %>
+    </div>
+</div>
