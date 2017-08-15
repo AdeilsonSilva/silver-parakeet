@@ -1,32 +1,17 @@
-<%= form_with(model: material_reserve_has_accessory, local: true) do |form| %>
-  <% if material_reserve_has_accessory.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(material_reserve_has_accessory.errors.count, "error") %> prohibited this material_reserve_has_accessory from being saved:</h2>
+<%= form_with(model: material_reserve_has_accessory, :html => {:class => "gt-form off-xs-3 xs-6"}, local: true) do |form| %>
+  <%= form_errors_for form.object %>
 
-      <ul>
-      <% material_reserve_has_accessory.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form.label :material_reserve_id %>
+  <%= form.text_field :material_reserve_id, id: :material_reserve_has_accessory_material_reserve_id %>
 
-  <div class="field">
-    <%= form.label :material_reserve_id %>
-    <%= form.text_field :material_reserve_id, id: :material_reserve_has_accessory_material_reserve_id %>
-  </div>
+  <%= form.label :accessories_id %>
+  <%= form.text_field :accessories_id, id: :material_reserve_has_accessory_accessories_id %>
 
-  <div class="field">
-    <%= form.label :accessories_id %>
-    <%= form.text_field :accessories_id, id: :material_reserve_has_accessory_accessories_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount, id: :material_reserve_has_accessory_amount %>
-  </div>
+  <%= form.label :amount %>
+  <%= form.number_field :amount, id: :material_reserve_has_accessory_amount %>
 
   <div class="actions">
-    <%= form.submit %>
+      <%= link_to 'Voltar', material_reserve_has_accessories, :class => "btn" %>
+      <%= form.submit 'Enviar', :class => "btn success" %>
   </div>
 <% end %>

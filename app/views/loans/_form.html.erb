@@ -1,62 +1,35 @@
-<%= form_with(model: loan, local: true) do |form| %>
-  <% if loan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+<%= form_with(model: loan, :html => {:class => "gt-form off-xs-3 xs-6"}, local: true) do |form| %>
+  <%= form_errors_for form.object %>
 
-      <ul>
-      <% loan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form.label :soldier_id %>
+  <%= form.text_field :soldier_id, id: :loan_soldier_id %>
 
-  <div class="field">
-    <%= form.label :soldier_id %>
-    <%= form.text_field :soldier_id, id: :loan_soldier_id %>
-  </div>
+  <%= form.label :material_reserve_id %>
+  <%= form.text_field :material_reserve_id, id: :loan_material_reserve_id %>
 
-  <div class="field">
-    <%= form.label :material_reserve_id %>
-    <%= form.text_field :material_reserve_id, id: :loan_material_reserve_id %>
-  </div>
+  <%= form.label :ammunition_id %>
+  <%= form.text_field :ammunition_id, id: :loan_ammunition_id %>
 
-  <div class="field">
-    <%= form.label :ammunition_id %>
-    <%= form.text_field :ammunition_id, id: :loan_ammunition_id %>
-  </div>
+  <%= form.label :armaments_id %>
+  <%= form.text_field :armaments_id, id: :loan_armaments_id %>
 
-  <div class="field">
-    <%= form.label :armaments_id %>
-    <%= form.text_field :armaments_id, id: :loan_armaments_id %>
-  </div>
+  <%= form.label :accessories_id %>
+  <%= form.text_field :accessories_id, id: :loan_accessories_id %>
 
-  <div class="field">
-    <%= form.label :accessories_id %>
-    <%= form.text_field :accessories_id, id: :loan_accessories_id %>
-  </div>
+  <%= form.label :ammunition_amount %>
+  <%= form.number_field :ammunition_amount, id: :loan_ammunition_amount %>
 
-  <div class="field">
-    <%= form.label :ammunition_amount %>
-    <%= form.number_field :ammunition_amount, id: :loan_ammunition_amount %>
-  </div>
+  <%= form.label :armaments_amount %>
+  <%= form.number_field :armaments_amount, id: :loan_armaments_amount %>
 
-  <div class="field">
-    <%= form.label :armaments_amount %>
-    <%= form.number_field :armaments_amount, id: :loan_armaments_amount %>
-  </div>
+  <%= form.label :accessories_amount %>
+  <%= form.number_field :accessories_amount, id: :loan_accessories_amount %>
 
-  <div class="field">
-    <%= form.label :accessories_amount %>
-    <%= form.number_field :accessories_amount, id: :loan_accessories_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date, id: :loan_date %>
-  </div>
+  <%= form.label :date %>
+  <%= form.datetime_select :date, id: :loan_date %>
 
   <div class="actions">
-    <%= form.submit %>
+      <%= link_to 'Voltar', loans_path, :class => "btn" %>
+      <%= form.submit 'Enviar', :class => "btn success" %>
   </div>
 <% end %>

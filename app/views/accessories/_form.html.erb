@@ -1,15 +1,5 @@
 <%= form_with(model: accessory, :html => {:class => "gt-form off-xs-3 xs-6"},  local: true) do |form| %>
-  <% if accessory.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(accessory.errors.count, "error") %> prohibited this accessory from being saved:</h2>
-
-      <ul>
-      <% accessory.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= form_errors_for form.object %>
 
   <%= form.label :description %>
   <%= form.text_field :description, id: :accessory_description %>

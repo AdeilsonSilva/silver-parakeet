@@ -1,17 +1,8 @@
-<%= form_with(model: material_reserf, local: true) do |form| %>
-  <% if material_reserf.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(material_reserf.errors.count, "error") %> prohibited this material_reserf from being saved:</h2>
-
-      <ul>
-      <% material_reserf.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with(model: material_reserf, :html => {:class => "gt-form off-xs-3 xs-6"}, local: true) do |form| %>
+  <%= form_errors_for form.object %>
 
   <div class="actions">
-    <%= form.submit %>
+      <%= link_to 'Voltar', material_reserves, :class => "btn" %>
+      <%= form.submit 'Enviar', :class => "btn success" %>
   </div>
 <% end %>
