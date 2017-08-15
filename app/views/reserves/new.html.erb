@@ -1,5 +1,8 @@
-<h1>New Reserf</h1>
+<% content_for :title, "Reservas" %>
 
-<%= render 'form', reserf: @reserf %>
-
-<%= link_to 'Back', reserves_path %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Adicionar Reservas</h1>
+        <%= render 'form', reserf: @reserf %>
+    </div>
+</div>

@@ -1,5 +1,9 @@
-<h1>New Ammunition</h1>
+<% content_for :title, "Munições" %>
 
-<%= render 'form', ammunition: @ammunition %>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
+        <h1>Adicionar Munições</h1>
 
-<%= link_to 'Back', ammunitions_path %>
+        <%= render 'form', ammunition: @ammunition %>
+    </div>
+</div>
