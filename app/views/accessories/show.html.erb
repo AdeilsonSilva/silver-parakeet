@@ -1,5 +1,9 @@
 <% content_for :title, "Acessórios" %>
-<p id="notice"><%= notice %></p>
+<% unless notice.blank? %>
+    <div class="info padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
 
 <div class="off-xs-3 xs-6 text-center">
     <div class="padding">

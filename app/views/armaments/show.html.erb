@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
+<% content_for :title, "Armamentos" %>
+<% unless notice.blank? %>
+    <div class="info padding" >
+        <p id="notice"><%= notice %></p>
+    </div>
+<% end %>
 
-<p>
-  <strong>Serial number:</strong>
-  <%= @armament.serial_number %>
-</p>
+<div class="off-xs-3 xs-6 text-center">
+    <div class="padding">
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @armament.manufacturer %>
-</p>
+        <p>
+          <strong>Serial number:</strong>
+          <%= @armament.serial_number %>
+        </p>
 
-<%= link_to 'Edit', edit_armament_path(@armament) %> |
-<%= link_to 'Back', armaments_path %>
+        <p>
+          <strong>Manufacturer:</strong>
+          <%= @armament.manufacturer %>
+        </p>
+    </div>
+</div>
+
+<%= link_to 'Voltar', armaments_path, :class => "btn" %>
+<%= link_to 'Editar', edit_armament_path(@armament), :class => "btn success" %>
